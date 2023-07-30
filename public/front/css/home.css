@@ -1,0 +1,143 @@
+body{
+  background-image: url("/front/playonhome2.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+
+}
+#header{
+  height: 91%; 
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.maintext{
+    font-family: 'Archivo Narrow', sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 700%;
+    text-shadow: 2px 2px 5px black;
+
+}
+.lowermaintext{
+  font-family: 'Pacifico', cursive;
+    color: white;
+    font-weight: 350;
+    font-size: 200%;
+    text-shadow: 2px 2px 5px black;
+}
+.ontext{
+    color: orange;
+    text-shadow: 2px 2px 5px black;
+}
+.carousel-inner > .carousel-item > img {
+    max-height: 50%;
+  }
+#carouselcaptiontext{
+    font-family: 'Laila', sans-serif;
+    text-shadow: 2px 2px black;
+}
+
+#uppertext{
+    font-weight: 120%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 120%;
+    font-weight: 200;
+    text-shadow: 1px 1px black;
+}
+  /*--------------------------------------------------------------
+  # Services
+  --------------------------------------------------------------*/
+  .services .icon-box {
+    text-align: center;
+    padding: 80px 20px;
+    transition: all ease-in-out 0.3s;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .services .icon-box .icon {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    background: #cc1616;
+    transition: all 0.3s ease-out 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+  }
+  
+  .services .icon-box .icon i {
+    color: #fff;
+    font-size: 28px;
+  }
+  
+  .services .icon-box .icon::before {
+    position: absolute;
+    content: "";
+    left: -8px;
+    top: -8px;
+    height: 100%;
+    width: 100%;
+    background: #fce5e5;
+    transition: all 0.3s ease-out 0s;
+    transform: translateZ(-1px);
+  }
+  
+  .services .icon-box h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  .services .icon-box h4 a {
+    color: #ffffff;
+  }
+  
+  .services .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .services .icon-box:hover {
+    background: #cc1616;
+    border-color: #ffffff;
+    padding: 70px 20px 90px 20px;
+  }
+  
+  .services .icon-box:hover .icon {
+    background: #fff;
+  }
+  
+  .services .icon-box:hover .icon i {
+    color: #cc1616;
+  }
+  
+  .services .icon-box:hover .icon::before {
+    background: #e82d2d;
+  }
+  
+  .services .icon-box:hover h4 a,
+  .services .icon-box:hover p {
+    color: #fff;
+  }
+  #servicestext{
+    color: rgb(255, 255, 255);
+    
+  }
+  
+  
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+#carousel1{
+  max-width: 90%;
+}

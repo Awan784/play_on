@@ -1,0 +1,24 @@
+
+.text-small {
+    font-size: 0.9rem !important;
+}
+
+.navbar {
+    background-image: url('/playonhome2.jpg');
+      background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.nav-link:hover{
+    background-color: rgb(238, 150, 9);
+    color: white;
+    border-radius: 3px;
+
+    padding: 5px;
+    
+}.nav-link{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

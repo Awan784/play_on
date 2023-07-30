@@ -1,0 +1,15 @@
+.nav-link:hover{
+    background-color: rgb(238, 150, 9);
+    color: white;
+    border-radius:3px;
+    padding: 5px;
+    
+}
+.nav-link{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px black;
+}
+
+.text-small {
+    font-size: 0.9rem !important;
+}

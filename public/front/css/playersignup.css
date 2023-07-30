@@ -1,0 +1,21 @@
+body {
+    height: 100%;
+    background-image: url("/front/registerplayerbackground.jpg") ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+label{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px black;
+    font-size: 100%;
+}
+.btn{
+border-radius: 2px;
+}
+#heading{
+  font-family: 'Golos Text', sans-serif;
+  text-shadow: 2px 2px black;
+}
