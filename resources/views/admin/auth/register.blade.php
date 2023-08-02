@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('content')
     <div class="container mt-5">
-        <form action="{{ route('admin.register') }}" method="post">
+        <form action="{{ route('admin.register') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-sm-3 col-md-3">
@@ -92,6 +92,7 @@
 
                     </div>
 
+
                     <!--Cnic-->
                     <div class="form-group">
                         <label for="cnic">CNIC</label>
@@ -105,7 +106,18 @@
                             </span>
                         @enderror
                     </div>
-
+                    <!--Image-->
+                    <div class="form-group">
+                        <label for="image">image</label>
+                        <input type="file" class="form-control text-white bg-dark @error('image') is-invalid @enderror"
+                            value="{{ old('image') }}" id="image" name="image">
+                        {{-- <span class="text-white">13 digits without dashes</span> --}}
+                        @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
 
                     <!--Address-->

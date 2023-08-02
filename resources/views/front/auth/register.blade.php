@@ -105,14 +105,31 @@
                             </span>
                         @enderror
                     </div>
-
+                    <!--Cnic-->
+                    <div class="form-group">
+                        <label class="form-label">From</label>
+                        <input type="text" value="{{ old('address') }}" data-bs-target="#register-map-model"
+                            data-bs-toggle="modal" data-bs-latitude="latitude" data-bs-longitude="longitude"
+                            data-bs-address="address" id="from" name="address"
+                            class="from form-control text-white bg-dark" required placeholder="From address location">
+                        @error('address')
+                            <p class="text-danger mb-0">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+                    <input type="hidden" value="{{ old('lat') }}" name="lat" class="latitude">
+                    <input type="hidden" value="{{ old('long') }}" name="long" class="longitude">
+                    @include('admin.common.map-model')
                     <!--Interest-->
                     <div class="form-group">
                         <label for="interest">Interest</label>
                         <select class="form-control text-white bg-dark @error('category_id') is-invalid @enderror"
                             value="{{ old('category_id') }}" id="category_id" name="category_id">
                             @foreach ($category as $key => $value)
-                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                <option
+                                    value="{{ $value->id }} {{ old('category_id') == $value->id ? 'selected' : '' }}">
+                                    {{ $value->name }}</option>
                             @endforeach
                         </select>
                         @error('category_id')
@@ -156,3 +173,9 @@
         </form>
     </div>
 @endsection
+@push('script-page-level')
+    <script src="{{ asset('assets/admin/js/map-model.js') }}"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNcTmnS323hh7tSQzFdwlnB4EozA3lwcA&libraries=places&callback=initAutocomplete">
+    </script>
+@endpush

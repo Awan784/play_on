@@ -74,6 +74,17 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                {{-- <div class="mb-3">
+                                    <label for="value" style="margin-bottom: 10px;">Couch</label>
+                                    <select class="choices form-select" name="category_id" required>
+                                        <option value="">----Select Couch----</option>
+                                        @foreach ($couch as $value)
+                                            <option value="{{ $value->id }}"
+                                                {{ $value->id == old('category_id', $venue->category_id) ? 'selected' : '' }}>
+                                                {{ ucfirst($value->name) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div> --}}
                                 @if ($errors->has('category_id'))
                                     <p class="text-danger">{{ $errors->first('category_id') }}</p>
                                 @endif
@@ -85,7 +96,7 @@
                                         data-bs-latitude="latitude" data-bs-longitude="longitude" data-bs-address="address"
                                         id="from" name="address" class="from form-control" required
                                         placeholder="From address location">
-                                    @error('from')
+                                    @error('address')
                                         <p class="text-danger mb-0">
                                             {{ $message }}
                                         </p>

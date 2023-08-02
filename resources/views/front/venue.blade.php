@@ -89,7 +89,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Book Now</a>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                        href="{{ route('venue.detail', $value->id) }}">Book Now</a>
                                 </div>
                             </div>
                         </div>

@@ -46,6 +46,12 @@
                         <span class="font-hide">order</span>
                     </a>
                 </li>
+                <li class="{{ str_contains(url()->current(), 'couch') ? 'active' : '' }}">
+                    <a href="{{ route('admin.couch.index') }}">
+                        <i class="fas fa-home"></i>
+                        <span class="font-hide">Couch</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

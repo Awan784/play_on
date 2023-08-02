@@ -16,13 +16,8 @@ class OrderController extends Controller
         $this->breadcrumbs[route('admin.order.index')] = ['icon' => 'fa fa-fw fa-home', 'title' => 'Order'];
     }
  public function index(){
-    if (auth()->user()->role_id==1) {
-        $order=Order::all();
-        return view('admin.order.index',compact('order'));
-    }else{
-        $order=Order::all();
-        return view('admin.order.index',compact('order'));
 
-    }
+        $order=Order::all();
+        return view('admin.order.index',compact('order'));
  }
 }

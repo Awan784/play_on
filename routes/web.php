@@ -13,6 +13,7 @@
 */
 
 use App\Http\Controllers\Admin\Auth\ProfileController;
+use App\Http\Controllers\admin\CouchController;
 use App\Http\Controllers\front\OrderControlller;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,7 @@ Route::group([ 'prefix' => 'admin' ,'as' => 'admin.'], function () {
         Route::group(['middleware' => []], function () {
             Route::get('order',[ App\Http\Controllers\Admin\OrderController::class,'index'])->name('order.index');
             Route::resources([
+                'couch'=>CouchController::class,
                 'settings' => App\Http\Controllers\Admin\SettingsController::class,
                 'roles' => App\Http\Controllers\Admin\RoleController::class,
                 'permissions' => App\Http\Controllers\Admin\PermissionController::class,

@@ -60,4 +60,9 @@ class VenueController extends Controller
         }
         return $day;
     }
+    public function getTime($date,$id){
+        $venue=Venue::find($id)->time($date);
+        // $time =;
+        return  $venue;
+    }
 }

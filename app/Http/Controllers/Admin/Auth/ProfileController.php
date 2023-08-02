@@ -23,6 +23,9 @@ class ProfileController extends Controller
         $data=$request->except('_token');
         if(isset($request->password)){
             $data['password']=Hash::make($request->password);
+        }else{
+            unset($data['password']);
+            // dd($data);
         }
         $admin= Admin::find(auth()->user()->id)->update($data);
         return redirect()->back()->with('success',"Your Profile is Updated");

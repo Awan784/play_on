@@ -53,12 +53,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // dd($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
             'age' => ['required'],
-            'cnic' => ['required'],
+            'cnic' => ['required','min:13','unique:admins'],
             'phone_number' => ['required'],
             'location_id' => ['required'],
             'image' => ['required'],
@@ -73,7 +74,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['image'])){
+            $data['image']=$this->saveImage($data['image']);
+        }
         $data['role_id']=2;
+
         //    $user->sendEmailVerificationNotification();
     return Admin::create([
         'role_id' => 2,
@@ -82,8 +87,8 @@ class RegisterController extends Controller
         'age' => $data['age'],
         'gender' => $data['gender'],
         'cnic' => $data['cnic'],
+        'image' => $data['image'],
         'phone_number' => $data['phone_number'],
-        'category_id' => $data['category_id'],
         'location_id' => $data['location_id'],
         'password' => Hash::make($data['password']),
     ]);
@@ -97,5 +102,10 @@ class RegisterController extends Controller
     protected function guard()
     {
         return Auth::guard('admins');
+    }
+    public function saveImage($image){
+        $filename = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $filename);
+        return 'images/'.$filename;
     }
 }

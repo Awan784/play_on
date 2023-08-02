@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/getDays/{id}',[VenueController::class,'getDays']);
+Route::get('/getTime/{date}/{id}',[VenueController::class,'getTime']);

@@ -66,7 +66,13 @@ class VenueController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $this->VenueRepository->destroy($id);
+            $data = $this->all();
+            return redirect()->back()->with('success','Deleted SuccessFully');
+        } catch (Exception $exception){
+            return redirect()->back()->with('error',$exception);
+        }
     }
 
     /**

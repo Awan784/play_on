@@ -82,6 +82,9 @@ class Admin extends Authenticatable implements JWTSubject, MustVerifyEmail
         return $this->belongsTo(Location::class,'location_id');
     }
     public function venue(){
-        return $this->hasMany(Venue::class,"user_id");
+        return $this->hasMany(Venue::class,"manager_id");
+    }
+    public function couch(){
+        return $this->hasMany(Couch::class,'created_by');
     }
 }
