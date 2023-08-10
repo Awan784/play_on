@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $data['role_id']=2;
 
         //    $user->sendEmailVerificationNotification();
-    return Admin::create([
+    $admin= Admin::create([
         'role_id' => 2,
         'name' => $data['name'],
         'email' => $data['email'],
@@ -91,6 +91,7 @@ class RegisterController extends Controller
         'phone_number' => $data['phone_number'],
         'location_id' => $data['location_id'],
         'password' => Hash::make($data['password']),
+        return $admin;
     ]);
     }
 

@@ -73,8 +73,7 @@ class RegisterController extends Controller
     {
         $data['role_id']=3;
         // dd($data);
-            //    $user->sendEmailVerificationNotification();
-        return User::create([
+        $user= User::create([
             'role_id' => 3,
             'name' => $data['name'],
             'email' => $data['email'],
@@ -89,6 +88,8 @@ class RegisterController extends Controller
             'long' => $data['long'],
             'password' => Hash::make($data['password']),
         ]);
+        $user->sendEmailVerificationNotification();
+        return $user;
     }
 
     public function showRegistrationForm()
