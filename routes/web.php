@@ -14,6 +14,7 @@
 
 use App\Http\Controllers\Admin\Auth\ProfileController;
 use App\Http\Controllers\admin\CouchController;
+use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\front\OrderControlller;
 use Illuminate\Support\Facades\Route;
 
@@ -109,6 +110,9 @@ Route::group([], function () {
 
     Route::group([], function () {
         Route::group(['as' => 'front.', 'middleware' => ['auth']], function () {
+            Route::get('order/detail',[DashboardController::class,'order'])->name('order');
+            Route::get('feedback',[DashboardController::class,'feedback'])->name('feedback');
+            Route::get('order/delete/{id}',[DashboardController::class,'orderDelete'])->name('order.delete');
             Route::post('venue/register',[OrderControlller::class,'create'])->name("venue.register");
             Route::get('dashboard', [App\Http\Controllers\Front\DashboardController::class, 'index'])->name('dashboard');
             Route::group(['middleware' => ['password.confirm']], function () {

@@ -16,6 +16,9 @@
 
                         <li class="nav-item">
                         <li><a class="nav-link text-white" href="{{ route('venue') }}">Venue</a></li>
+                        @if (Auth::check())
+                            <li><a class="nav-link text-white" href="{{ route('front.order') }}">Order</a></li>
+                        @endif
                         </li>
                         <li class="nav-item">
                         <li><a class="nav-link text-white" href="{{ url('') }}">Contact</a></li>
