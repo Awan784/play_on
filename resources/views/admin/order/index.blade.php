@@ -47,7 +47,7 @@
                                 @endforelse
                             @else
                                 @forelse(auth()->user()->venue as $key => $value)
-                                    @foreach ($value->order as $value2)
+                                    @forelse ($value->order as $value2)
                                         <tr>
                                             <td class="width-10">{{ $key + 1 }}</td>
                                             <td class="width-20">{{ $value->name }}</td>
@@ -65,7 +65,12 @@
                                                     title="Delete" class="delete"><i class="fa fa-trash"></i></a> --}}
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="8">No </td>
+                                        </tr>
+                                    @endforelse
+
                                 @empty
                                     <tr>
                                         <td colspan="8">No Record Found.</td>

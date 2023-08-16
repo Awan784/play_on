@@ -18,6 +18,7 @@ class Controller extends BaseController
         View::composer('*', function($view)
         {
             $view->with([
+                'time'=>DB::table('time')->get(),
                 'location' => DB::table('location')->get(),
                 'category' => DB::table('category')->get(),
                 'pageTitle' => $this->pageTitle,

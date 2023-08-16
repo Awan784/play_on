@@ -17,8 +17,8 @@ class CreateOrderTable extends Migration
             $table->id();
             $table->integer('venue_id');
             $table->integer('user_id');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->integer('start_time');
+            $table->integer('end_time');
             $table->date('date');
             $table->timestamps();
         });

@@ -49,8 +49,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone_number">Start Time</label>
-                                    <input type="text" readonly class="form-control text-white bg-dark" value=""
-                                        id="timepicker" name="start_time">
+                                    <select class="form-control text-white bg-dark" name="start_time">
+                                        <option value="">----Select venue----</option>
+                                        @foreach ($venue->coach as $value)
+                                            <option value="{{ $value->id }}"
+                                                {{ $value->id == old('couch_id', $value->id) ? 'selected' : '' }}>
+                                                {{ ucfirst($value->name) }}</option>
+                                        @endforeach
+                                    </select>
 
                                 </div>
                                 <div class="form-group">
@@ -78,42 +84,40 @@
                             </div>
                             <button class="btn btn-primary">Register</button>
                         </form>
-                        <div wire:ignore style="padding-top: 120px">
-                            <div id="paypal-button-container"></div>
-                        </div>
-                        {{-- <table class="table table-bordered text-white">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Slots Available</th>
-                                        <th>Register</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2023-07-20</td>
-                                        <td>10:00 AM - 11:00 PM</td>
-                                        <td>5</td>
-                                        <td><button class="btn btn-primary">Register</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-08-20</td>
-                                        <td>2:00 PM - 3:00 PM</td>
-                                        <td>3</td>
-                                        <td></td>
-                                    </tr>
-                                    <!-- Add more timeslots here as needed -->
-                                </tbody>
-                            </table> --}}
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <table class="table pt-5" style=" width:50%; color: white; border:1px solid white;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Start/End Time</th>
+                <th>entry Fee</th>
+                <th>Prize</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($venue->tournament as $value)
+                <tr>
+                    <td>{{ $value->name }}</td>
+                    <td>{{ $value->date }}</td>
+                    <td>{{ $value->start->time }}/{{ $value->end->time }}</td>
+                    <td>{{ $value->entry_fee }}</td>
+                    <td>{{ $value->prize }}</td>
+                    <td><a href="" class="btn btn-primary">Register</a></td>
+                </tr>
+            @endforeach
+            <tr></tr>
+        </tbody>
+    </table>
     <input type="hidden" id="today" value="{{ date('Y-m-d', strtotime('today')) }}">
     <input type="hidden" id="id" value="{{ $venue->id }}">
-    <input type="text" id="result" value="">
 @endsection
 @push('script-page-level')
     <script>
@@ -153,7 +157,7 @@
     </head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.css" rel="stylesheet" />
     <script>
-        $('#datetimepicker').on('change', function() {
+        $('#datetimepicker').on('keyup', function() {
             console.log("Asasasa")
             var id = $('#id').val();
             var date = $(this).val()

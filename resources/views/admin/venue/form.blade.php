@@ -108,16 +108,33 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(0) ? $venue->time(0)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(1) ? $venue->time(1)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(0) ? $venue->time(0)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(1) ? $venue->time(1)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -127,16 +144,33 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(1) ? $venue->time(1)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(1) ? $venue->time(1)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(1) ? $venue->time(1)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(1) ? $venue->time(1)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -147,16 +181,33 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(2) ? $venue->time(2)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(2) ? $venue->time(2)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(2) ? $venue->time(2)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(2) ? $venue->time(2)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -167,19 +218,35 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(3) ? $venue->time(3)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(3) ? $venue->time(3)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input
-                                                type="time"value="{{ $venue->time(3) ? $venue->time(3)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(3) ? $venue->time(3)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 mb-3">
                                     <label class="form-label"> <input type="checkbox" name="day[]" value="4"
@@ -187,16 +254,33 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(4) ? $venue->time(4)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(4) ? $venue->time(4)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(4) ? $venue->time(4)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(4) ? $venue->time(4)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -207,16 +291,33 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(5) ? $venue->time(5)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(5) ? $venue->time(5)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(5) ? $venue->time(5)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(5) ? $venue->time(5)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -228,23 +329,40 @@
                                     <div class="row">
 
                                         <div class="col-6">
-                                            <label for="" class="form-label">Start Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(6) ? $venue->time(6)->start_time : '' }}"
-                                                name="start[]" id="">
+                                            <label for="start_time" style="margin-bottom: 10px;">start_time</label>
+                                            <select class="choices form-select" name="start_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('start_time', $venue->time(6) ? $venue->time(6)->start_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('start_time'))
+                                                <p class="text-danger">{{ $errors->first('start_time') }}</p>
+                                            @endif
                                         </div>
+
                                         <div class="col-6">
-                                            <label for="" class="form-label">End Time</label>
-                                            <input type="time"
-                                                value="{{ $venue->time(6) ? $venue->time(6)->end_time : '' }}"
-                                                name="end[]" id="">
+                                            <label for="end_time" style="margin-bottom: 10px;">end_time</label>
+                                            <select class="choices form-select" name="end_time[]">
+                                                <option value="">--:-- AM</option>
+                                                @foreach ($time as $value)
+                                                    <option value="{{ $value->id }}"
+                                                        {{ $value->id == old('end_time', $venue->time(6) ? $venue->time(6)->end_time : '') ? 'selected' : '' }}>
+                                                        {{ ucfirst($value->time) }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('end_time'))
+                                                <p class="text-danger">{{ $errors->first('end_time') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
                                 </div>
 
 
-                                {{-- <input type="text"class="from form-control" required
+                                {{-- <input type="text"class="from form-control"
                                         placeholder="From address location"> --}}
 
 

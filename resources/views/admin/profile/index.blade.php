@@ -71,6 +71,14 @@
                                     @endif
                                 </div>
                                 <div class="mb-3">
+                                    <label for="image" style="margin-bottom: 10px;">Image</label>
+                                    <input type="email" id="image" class="form-control" name="image" required>
+
+                                    @if ($errors->has('Image'))
+                                        <p class="text-danger">{{ $errors->first('Image') }}</p>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
                                     <label for="password" style="margin-bottom: 10px;">New Password</label>
                                     <input type="password" id="password" class="form-control" name="password"
                                         value="" placeholder="Enter phone number">

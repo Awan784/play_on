@@ -23,4 +23,10 @@ class Order extends Model
     public function venue(){
         return $this->belongsTo(Venue::class,'venue_id');
     }
+    public function start(){
+        return $this->belongsTo(Time::class,'start_time');
+    }
+    public function end(){
+        return $this->belongsTo(Time::class,'end_time');
+    }
 }

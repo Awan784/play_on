@@ -52,6 +52,12 @@
                         <span class="font-hide">Couch</span>
                     </a>
                 </li>
+                <li class="{{ str_contains(url()->current(), 'tournament') ? 'active' : '' }}">
+                    <a href="{{ route('admin.tournament.index') }}">
+                        <i class="fas fa-home"></i>
+                        <span class="font-hide">tournament</span>
+                    </a>
+                </li>
 
             </ul>
         </nav>

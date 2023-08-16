@@ -127,8 +127,8 @@ class VenueController extends Controller
                 VenueTimeTable::create([
                     'venue_id'=>$venue->id,
                     'day'=>$value,
-                    'start_time'=>$VenueRequest->start[$value],
-                    'end_time'=>$VenueRequest->end[$value],
+                    'start_time'=>$VenueRequest->start_time[$value],
+                    'end_time'=>$VenueRequest->end_time[$value],
                 ]);
             }
         }

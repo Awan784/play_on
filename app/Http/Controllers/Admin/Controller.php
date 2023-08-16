@@ -20,8 +20,9 @@ class Controller extends BaseController
         View::composer('*', function($view)
         {
             $view->with([
-                
+
                 'location' => DB::table('location')->get(),
+                'time' => DB::table('time')->get(),
                 'breadcrumbs' => $this->breadcrumbs,
                 'pageTitle' => $this->pageTitle,
                 'pageHeading' => $this->pageHeading,

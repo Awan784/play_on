@@ -33,6 +33,7 @@ class Admin extends Authenticatable implements JWTSubject, MustVerifyEmail
         'location_id',
         'password',
         'status',
+        'image'
     ];
 
     /**
@@ -86,5 +87,8 @@ class Admin extends Authenticatable implements JWTSubject, MustVerifyEmail
     }
     public function couch(){
         return $this->hasMany(Couch::class,'created_by');
+    }
+    public function tournament(){
+        return $this->hasMany(Tournament::class,"created_by");
     }
 }

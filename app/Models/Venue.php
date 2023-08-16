@@ -51,4 +51,13 @@ class Venue extends Model
     {
         return $this->hasMany(Couch::class,'venue_id');
     }
+    /**
+     * Get all of the tournament for the Venue
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tournament(): HasMany
+    {
+        return $this->hasMany(Tournament::class, 'venue_id');
+    }
 }

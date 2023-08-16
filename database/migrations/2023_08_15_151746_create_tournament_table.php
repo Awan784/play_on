@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenueTimetableTable extends Migration
+class CreateTournamentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateVenueTimetableTable extends Migration
      */
     public function up()
     {
-        Schema::create('venue_timetable', function (Blueprint $table) {
+        Schema::create('tournament', function (Blueprint $table) {
             $table->id();
+            $table->integer('venue_id');
+            $table->string('name');
+            $table->date('date');
             $table->integer('start_time');
             $table->integer('end_time');
-            $table->integer('venue_id');
-            // $table->integer('day');
-
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateVenueTimetableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venue_timetable');
+        Schema::dropIfExists('tournament');
     }
 }

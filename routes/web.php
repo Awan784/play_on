@@ -73,6 +73,7 @@ Route::group([ 'prefix' => 'admin' ,'as' => 'admin.'], function () {
                 'venue' => App\Http\Controllers\Admin\VenueController::class,
                 'user' => App\Http\Controllers\Admin\UserController::class,
                 'manager' => App\Http\Controllers\Admin\ManagerController::class,
+                'tournament' => App\Http\Controllers\Admin\TournamentController::class,
             ]);
         });
     });
@@ -109,7 +110,7 @@ Route::group([], function () {
     Route::post('/password/confirm', [App\Http\Controllers\Front\Auth\ConfirmPasswordController::class, 'confirm'])->name('password.confirm');
 
     Route::group([], function () {
-        Route::group(['as' => 'front.', 'middleware' => ['auth']], function () {
+        Route::group(['as' => 'front.', 'middleware' => ['auth','verified']], function () {
             Route::get('order/detail',[DashboardController::class,'order'])->name('order');
             Route::get('feedback',[DashboardController::class,'feedback'])->name('feedback');
             Route::get('order/delete/{id}',[DashboardController::class,'orderDelete'])->name('order.delete');
